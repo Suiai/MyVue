@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>vue</title>
+    </head>
+    <body>
+        <div id='app'>
+            <p>{{name}}</p>
+            <p k-text='age'></p>
+            <p>{{age}}</p>
+            <p>
+                {{doubleAge}}
+            </p>
+            <input type="text" k-model='name'/>
+            <button @click='changeName'>呵呵</button>
+            <div k-html='html'></div>
+        </div>
+        <script src="./compile.js"></script>
+        <script src="./svue.js"></script>
+        <script>
+            const app = new SVue({
+                el: "#app",
+                data: {
+                    name: "I am a test!",
+                    age: 12,
+                    html: " <button @click='add'>按钮</button>"
+                },
+                created() {
+                    console.log("开始。。。");
+                    setTimeout(() => {
+                        this.name = "名字";
+                    }, 1500);
+                },
+                methods: {
+                    changeName() {
+                        this.name = "新名字";
+                        this.age = 1;
+                    },
+                    add() {
+                        this.age++;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
