@@ -1,5 +1,5 @@
 # MyVue
 a simple vue
- npm install
+  npm install
  
  npm run serve
